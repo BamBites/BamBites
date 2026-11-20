@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Bambites - Brown Butter Banana Bread</title>
+<title>Bambites - We are glad to be a part your happiness. Enjoy shopping buddies!</title>
 <meta name="description" content="Brown Butter Banana Bread, muffin dan kek pisang dari Bambites, Taiping. Tempah online melalui WhatsApp.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -40,11 +40,20 @@
 
   /* Hero */
   .hero { background: linear-gradient(180deg, var(--krim) 0%, var(--putih) 100%); text-align: center; padding: 56px 0 52px; }
-  .hero-logo { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 3px solid var(--kuning); background: var(--putih); box-shadow: 0 8px 24px rgba(200,16,46,.15); margin-bottom: 18px; }
+  .hero-logo { width: clamp(200px, 56vw, 290px); height: clamp(200px, 56vw, 290px); border-radius: 50%; object-fit: cover; border: 4px solid var(--kuning); background: var(--putih); box-shadow: 0 10px 30px rgba(200,16,46,.18); margin-bottom: 6px;
+    animation: masuk 1s cubic-bezier(.2,.8,.2,1) both, apung 4.5s ease-in-out 1s infinite, sinar 3s ease-out 1s infinite; }
+  @keyframes masuk { from { opacity: 0; transform: scale(.55) rotate(-10deg); } to { opacity: 1; transform: scale(1) rotate(0); } }
+  @keyframes apung { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+  @keyframes sinar { 0% { box-shadow: 0 10px 30px rgba(200,16,46,.18), 0 0 0 0 rgba(244,180,0,.5); } 70%, 100% { box-shadow: 0 10px 30px rgba(200,16,46,.18), 0 0 0 26px rgba(244,180,0,0); } }
+  @keyframes naik { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+  .hero .tagline { animation: naik .8s ease-out .5s both; }
+  .hero .kecil, .hero .sapaan { animation: naik .8s ease-out .8s both; }
+  .hero .garis-kuning, .hero .btn { animation: naik .8s ease-out 1.1s both; }
+  @media (prefers-reduced-motion: reduce) { .hero-logo, .hero .tagline, .hero .kecil, .hero .sapaan, .hero .garis-kuning, .hero .btn { animation: none; } }
   .hero .kecil { display: inline-block; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: var(--merah); font-weight: 600; margin-bottom: 14px; }
-  .hero h1 { font-size: clamp(32px, 6vw, 54px); margin-bottom: 14px; }
+  .hero h1 { font-size: clamp(24px, 4.6vw, 38px); margin: 0 auto 14px; max-width: 760px; }
   .hero h1 em { color: var(--merah); font-style: normal; }
-  .tagline { font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: clamp(18px, 3vw, 22px); color: var(--kelabu); margin: 0 auto 26px; max-width: 560px; }
+  .tagline { font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: clamp(18px, 3vw, 24px); color: var(--merah); margin: 6px auto 24px; max-width: 560px; }
   .garis-kuning { width: 56px; height: 4px; background: var(--kuning); border-radius: 4px; margin: 0 auto 22px; }
 
   /* Butang */
@@ -201,10 +210,10 @@
 <div class="hero">
   <div class="wrap">
     <img class="hero-logo" src="https://bambites.github.io/BamBites/IMG-20261120-WA0991.jpg" alt="Logo Bambites" onerror="this.style.display='none'"><br>
-    <span class="kecil">Taiping</span>
-    <h1>Brown Butter <em>Banana Bread</em></h1>
-    <div class="garis-kuning"></div>
     <p class="tagline">Once You Bite, You'll bites again</p>
+    <span class="kecil">Taiping</span>
+    <h1 class="sapaan">Hai, Thanks for choosing us. We are glad to be a part your happiness. Enjoy shopping buddies! &#128513;</h1>
+    <div class="garis-kuning"></div>
     <a class="btn" href="#produk">Pilih &amp; Tempah</a>
   </div>
 </div>
@@ -447,7 +456,7 @@ const NOMBOR_WHATSAPP = "60172763876";
 // EDIT DI SINI (2): butiran bank untuk Online Transfer.
 // Biarkan kosong ("") jika belum mahu tunjuk.
 // ============================================================
-const BANK = { nama: "Maybank", akaun: "558051624043", pemilik: "Nurazarina Azrin Binti Jamal"};
+const BANK = { nama: "Maybank", akaun: "558051624043", pemilik: "Nurazarina Azrin Binti Jamal" };
 
 // ============================================================
 // EDIT DI SINI (3): SENARAI PRODUK DAN HARGA
@@ -480,7 +489,7 @@ const PRODUK = [
   {
     nama: "Brown Butter Banana Bread Mini Loaf",
     penerangan: "Banana bread mini loaf menggunakan pure butter sepenuhnya, dengan resepi olahan sendiri.",
-    gambar: "",
+    gambar: "IMG-20261120-WA1039.jpg",
     unit: "mini loaf",
     maks: 50,
     pakej: [2, 4, 6, 8],
@@ -498,37 +507,37 @@ const PRODUK = [
     maks: 50,
     bebas: true,
     flavor: [
-      { nama: "Classic", harga: 0 },
-      { nama: "Dark",    harga: 0 },
-      { nama: "Cheese",  harga: 0 }
+      { nama: "Classic", harga: RM32 },
+      { nama: "Dark",    harga: RM34 },
+      { nama: "Cheese",  harga: RM48 }
     ],
     topping: ["Plain", "Choc Chip", "Choc Chunk", "Chip Chunk", "Drizzle Nutty"]
   },
   {
     nama: "Brown Butter Banana Bread 6 Inch",
     penerangan: "Brown butter banana bread saiz 6 inci.",
-    gambar: "",
+    gambar: "IMG-20261120-WA1042.jpg",
     unit: "unit",
     maks: 50,
     bebas: true,
     flavor: [
-      { nama: "Classic", harga: 0 },
-      { nama: "Dark",    harga: 0 },
-      { nama: "Cheese",  harga: 0 }
+      { nama: "Classic", harga: RM44 },
+      { nama: "Dark",    harga: RM46 },
+      { nama: "Cheese",  harga: RM65 }
     ],
     topping: ["Plain", "Choc Chip", "Choc Chunk", "Chip Chunk Choc", "Drizzle Nutty", "Choc Berlemoih"]
   },
   {
     nama: "Mini Banana Muffin",
     penerangan: "Mini banana muffin.",
-    gambar: "",
+    gambar: "IMG-20261120-WA1041.jpg",
     unit: "pcs",
     maks: 50,
     pakej: [25, 50],
     flavor: [
-      { nama: "Classic", harga: { 25: 0, 50: 0 } },
-      { nama: "Dark",    harga: { 25: 0, 50: 0 } },
-      { nama: "Cheese",  harga: { 25: 0, 50: 0 } }
+      { nama: "Classic", harga: { 25: RM30, 50: RM50 } },
+      { nama: "Dark",    harga: { 25: RM35, 50: RM55 } },
+      { nama: "Cheese",  harga: { 25: RM40, 50: RM60 } }
     ],
     topping: ["Plain", "Choc Chip", "Nutty", "Crumbs"]
   },
@@ -540,9 +549,9 @@ const PRODUK = [
     maks: 50,
     bebas: true,
     flavor: [
-      { nama: "Classic", harga: 0 },
-      { nama: "Dark",    harga: 0 },
-      { nama: "Cheese",  harga: 0 }
+      { nama: "Classic", harga: RM35 },
+      { nama: "Dark",    harga: RM40 },
+      { nama: "Cheese",  harga: RM50 }
     ],
     topping: ["Plain", "Choc Chip", "Choc Chunk", "Chip Chunk Choc", "Drizzle Nutty", "Choc Berlemoih"]
   }
