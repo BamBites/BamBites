@@ -3,501 +3,763 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Bambites</title>
+<title>Bambites - Brown Butter Banana Bread</title>
+<meta name="description" content="Brown Butter Banana Bread, muffin dan kek pisang dari Bambites, Taiping. Tempah online melalui WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --merah: #d62828;
-    --merah-gelap: #a61e1e;
-    --kuning: #ffc300;
-    --kuning-cair: #fff4c2;
+    --merah: #c8102e;
+    --merah-gelap: #9d0c24;
+    --kuning: #f4b400;
+    --krim: #fff9ea;
     --putih: #ffffff;
-    --kelabu: #f5f5f5;
-    --teks: #2b2b2b;
+    --teks: #1f1f1f;
+    --kelabu: #6b6b6b;
+    --garis: #ece7da;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: Arial, Helvetica, sans-serif; background: var(--putih); color: var(--teks); line-height: 1.5; }
-  header { background: var(--merah); color: var(--putih); padding: 14px 20px; display: flex; align-items: center; gap: 14px; border-bottom: 5px solid var(--kuning); }
-  header img { height: 60px; width: 60px; object-fit: contain; background: var(--putih); border-radius: 50%; padding: 4px; }
-  header h1 { font-size: 28px; letter-spacing: 1px; }
-  header p { font-size: 13px; color: var(--kuning-cair); }
-  nav { background: var(--kuning); display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; padding: 8px; }
-  nav a { color: var(--merah-gelap); text-decoration: none; font-weight: bold; padding: 6px 14px; border-radius: 20px; }
-  nav a:hover { background: var(--putih); }
-  main { max-width: 960px; margin: 0 auto; padding: 20px 16px 60px; }
-  section { margin-bottom: 36px; }
-  h2 { color: var(--merah); border-left: 6px solid var(--kuning); padding-left: 10px; margin-bottom: 14px; }
-  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 16px; }
-  .kad { border: 2px solid var(--kuning); border-radius: 12px; padding: 12px; background: var(--putih); text-align: center; }
-  .kad img { width: 100%; height: 150px; object-fit: cover; border-radius: 8px; background: var(--kelabu); }
-  .kad h3 { margin: 8px 0 2px; color: var(--merah-gelap); }
-  .kad .harga { font-weight: bold; margin-bottom: 8px; }
-  .kad .penerangan { font-size: 13px; color: #666; margin-bottom: 8px; min-height: 18px; }
-  button, .btn { background: var(--merah); color: var(--putih); border: none; padding: 9px 16px; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 14px; }
-  button:hover { background: var(--merah-gelap); }
-  button.kuning { background: var(--kuning); color: var(--merah-gelap); }
-  button.kelabu { background: #999; }
-  label { display: block; font-weight: bold; margin: 10px 0 4px; }
-  input, textarea, select { width: 100%; padding: 9px; border: 2px solid #ddd; border-radius: 8px; font-size: 14px; }
-  input:focus, textarea:focus, select:focus { outline: none; border-color: var(--kuning); }
-  .panel { background: var(--kelabu); border-radius: 12px; padding: 16px; border-top: 4px solid var(--merah); }
-  .baris { display: flex; justify-content: space-between; align-items: center; padding: 6px 0; border-bottom: 1px dashed #ccc; gap: 8px; }
-  .jumlah { font-size: 20px; font-weight: bold; color: var(--merah); text-align: right; margin-top: 10px; }
-  .notis { background: var(--kuning-cair); border-left: 5px solid var(--kuning); padding: 10px 12px; border-radius: 6px; margin-top: 10px; font-size: 14px; }
-  .pilihan label { font-weight: normal; display: flex; gap: 8px; align-items: center; margin: 6px 0; }
-  .pilihan input { width: auto; }
-  .tersembunyi { display: none; }
-  .qr-kotak { text-align: center; padding: 12px; background: var(--putih); border: 2px dashed var(--kuning); border-radius: 10px; margin-top: 10px; }
-  .qr-kotak img { max-width: 220px; width: 100%; }
-  footer { background: var(--merah); color: var(--putih); text-align: center; padding: 16px; border-top: 5px solid var(--kuning); font-size: 13px; }
-  .edit-bar { background: var(--kuning-cair); padding: 10px; border-radius: 8px; margin-bottom: 14px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', Arial, sans-serif; color: var(--teks); background: var(--putih); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  h1, h2, h3 { font-family: 'Playfair Display', Georgia, serif; font-weight: 700; line-height: 1.2; }
+  a { color: inherit; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+  .tersembunyi { display: none !important; }
+
+  /* Header */
+  header { position: sticky; top: 0; z-index: 20; background: rgba(255,255,255,.94); backdrop-filter: blur(8px); border-bottom: 1px solid var(--garis); }
+  .bar { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+  .jenama { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .jenama img { width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 2px solid var(--kuning); background: var(--putih); }
+  .jenama span { font-family: 'Playfair Display', Georgia, serif; font-size: 24px; font-weight: 700; color: var(--merah); letter-spacing: .5px; }
+  nav { display: flex; gap: 22px; }
+  nav a { text-decoration: none; font-size: 14px; font-weight: 500; color: var(--teks); padding: 4px 0; border-bottom: 2px solid transparent; }
+  nav a:hover { color: var(--merah); border-color: var(--kuning); }
+  @media (max-width: 640px) { nav { display: none; } }
+
+  /* Hero */
+  .hero { background: linear-gradient(180deg, var(--krim) 0%, var(--putih) 100%); text-align: center; padding: 56px 0 52px; }
+  .hero-logo { width: clamp(200px, 56vw, 290px); height: clamp(200px, 56vw, 290px); border-radius: 50%; object-fit: cover; border: 4px solid var(--kuning); background: var(--putih); box-shadow: 0 10px 30px rgba(200,16,46,.18); margin-bottom: 6px;
+    animation: masuk 1s cubic-bezier(.2,.8,.2,1) both, apung 4.5s ease-in-out 1s infinite, sinar 3s ease-out 1s infinite; }
+  @keyframes masuk { from { opacity: 0; transform: scale(.55) rotate(-10deg); } to { opacity: 1; transform: scale(1) rotate(0); } }
+  @keyframes apung { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+  @keyframes sinar { 0% { box-shadow: 0 10px 30px rgba(200,16,46,.18), 0 0 0 0 rgba(244,180,0,.5); } 70%, 100% { box-shadow: 0 10px 30px rgba(200,16,46,.18), 0 0 0 26px rgba(244,180,0,0); } }
+  @keyframes naik { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+  .hero .tagline { animation: naik .8s ease-out .5s both; }
+  .hero .kecil, .hero .sapaan { animation: naik .8s ease-out .8s both; }
+  .hero .garis-kuning, .hero .btn { animation: naik .8s ease-out 1.1s both; }
+  @media (prefers-reduced-motion: reduce) { .hero-logo, .hero .tagline, .hero .kecil, .hero .sapaan, .hero .garis-kuning, .hero .btn { animation: none; } }
+  .hero .kecil { display: inline-block; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: var(--merah); font-weight: 600; margin-bottom: 14px; }
+  .hero h1 { font-size: clamp(24px, 4.6vw, 38px); margin: 0 auto 14px; max-width: 760px; }
+  .hero h1 em { color: var(--merah); font-style: normal; }
+  .tagline { font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: clamp(18px, 3vw, 24px); color: var(--merah); margin: 6px auto 24px; max-width: 560px; }
+  .garis-kuning { width: 56px; height: 4px; background: var(--kuning); border-radius: 4px; margin: 0 auto 22px; }
+
+  /* Butang */
+  .btn { display: inline-block; background: var(--merah); color: var(--putih); border: none; padding: 13px 28px; border-radius: 999px; font: 600 15px 'Inter', sans-serif; cursor: pointer; text-decoration: none; transition: background .2s, transform .1s; }
+  .btn:hover { background: var(--merah-gelap); }
+  .btn:active { transform: scale(.98); }
+  .btn:disabled { background: #cfcfcf; cursor: not-allowed; }
+  .btn.kecil { padding: 9px 18px; font-size: 13px; }
+  .btn.garis { background: transparent; color: var(--merah); border: 1.5px solid var(--merah); }
+  .btn.garis:hover { background: var(--merah); color: var(--putih); }
+  .btn.kelabu { background: #8a8a8a; }
+
+  /* Jalur */
+  .jalur { background: var(--merah); color: var(--putih); }
+  .jalur .wrap { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); }
+  .jalur div { padding: 18px 16px; text-align: center; border-right: 1px solid rgba(255,255,255,.18); }
+  .jalur div:last-child { border-right: none; }
+  .jalur b { display: block; color: var(--kuning); font-size: 15px; letter-spacing: .3px; }
+  .jalur span { font-size: 13px; opacity: .92; }
+
+  /* Seksyen */
+  section { padding: 56px 0; }
+  .tajuk { text-align: center; margin-bottom: 34px; }
+  .tajuk h2 { font-size: clamp(26px, 4vw, 34px); }
+  .tajuk .garis-kuning { margin: 14px auto 0; }
+  .tajuk p { color: var(--kelabu); margin-top: 10px; }
+
+  /* Pembina produk */
+  .produk-kad { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: 32px; background: var(--putih); border: 1px solid var(--garis); border-radius: 20px; padding: 24px; box-shadow: 0 10px 30px rgba(0,0,0,.05); }
+  @media (max-width: 760px) { .produk-kad { grid-template-columns: 1fr; padding: 18px; } }
+  .produk-gambar { aspect-ratio: 1 / 1; background: var(--krim); border-radius: 16px; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+  .produk-gambar img { width: 100%; height: 100%; object-fit: cover; }
+  .produk-isi h3 { font-size: 26px; margin-bottom: 6px; }
+  .produk-isi .penerangan { color: var(--kelabu); font-size: 15px; }
+  .bina h4 { font: 600 15px 'Inter', sans-serif; margin: 20px 0 8px; display: flex; justify-content: space-between; gap: 8px; }
+  .bina h4 span { color: var(--merah); font-weight: 600; }
+  .nota { font-size: 13px; color: var(--kelabu); margin: 0 0 8px; }
+  .opsi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; }
+  .opsi-grid.lebar { grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); }
+  .opsi { border: 1.5px solid var(--garis); background: var(--putih); border-radius: 12px; padding: 12px 10px; cursor: pointer; text-align: center; font: 500 14px 'Inter', sans-serif; color: var(--teks); transition: border-color .15s, background .15s; }
+  .opsi small { display: block; color: var(--merah); font-weight: 600; margin-top: 2px; font-size: 13px; }
+  .opsi:hover { border-color: var(--kuning); }
+  .opsi.aktif { border-color: var(--merah); background: #fff3f4; }
+  .topping-baris { display: flex; align-items: center; justify-content: space-between; padding: 9px 0; border-bottom: 1px solid var(--garis); font-size: 15px; }
+  .topping-baris:last-child { border-bottom: none; }
+  .kuantiti { display: flex; align-items: center; gap: 10px; }
+  .kuantiti button { width: 32px; height: 32px; border-radius: 50%; border: 1.5px solid var(--merah); background: var(--putih); color: var(--merah); font-size: 18px; font-weight: 600; cursor: pointer; line-height: 1; }
+  .kuantiti button:hover:not(:disabled) { background: var(--merah); color: var(--putih); }
+  .kuantiti button:disabled { opacity: .3; cursor: not-allowed; }
+  .kuantiti b { min-width: 18px; text-align: center; }
+  .kuantiti input { width: 72px; padding: 8px 6px; text-align: center; font: 600 16px 'Inter', sans-serif; border: 1.5px solid var(--garis); border-radius: 10px; }
+  .bilangan-bebas { display: flex; align-items: center; justify-content: space-between; gap: 12px; border: 1.5px solid var(--garis); border-radius: 12px; padding: 12px 14px; }
+  .bilangan-bebas small { color: var(--merah); font-weight: 600; font-size: 13px; }
+  .opsi:disabled { opacity: .4; cursor: not-allowed; }
+  .ringkas { display: flex; justify-content: space-between; align-items: center; margin: 18px 0 12px; font-size: 18px; font-weight: 600; }
+  .ringkas span.nilai { color: var(--merah); }
+
+  /* Tentang */
+  .tentang { background: var(--krim); }
+  .tentang .kotak { max-width: 680px; margin: 0 auto; text-align: center; }
+  .tentang p { color: #444; font-size: 16px; }
+  .ciri { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 20px; margin-top: 34px; }
+  .ciri div { background: var(--putih); border-radius: 14px; padding: 22px 18px; border: 1px solid var(--garis); text-align: center; }
+  .ciri b { display: block; color: var(--merah); font-family: 'Playfair Display', serif; font-size: 18px; margin-bottom: 6px; }
+  .ciri span { font-size: 14px; color: var(--kelabu); }
+
+  /* Langkah */
+  .langkah { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; max-width: 900px; margin: 0 auto; }
+  .langkah > div { text-align: center; padding: 8px 12px; }
+  .langkah .nombor { width: 46px; height: 46px; border-radius: 50%; background: var(--kuning); color: var(--merah-gelap); font: 700 20px 'Playfair Display', serif; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; }
+  .langkah b { display: block; font-size: 16px; margin-bottom: 4px; }
+  .langkah span { font-size: 14px; color: var(--kelabu); }
+
+  /* Borang */
+  .borang { max-width: 720px; margin: 0 auto; }
+  .kotak-putih { background: var(--putih); border: 1px solid var(--garis); border-radius: 16px; padding: 24px; margin-bottom: 20px; }
+  .kotak-putih h3 { font-size: 19px; margin-bottom: 14px; }
+  label.medan { display: block; font-size: 13px; font-weight: 600; margin: 14px 0 5px; }
+  input[type=text], input[type=tel], input[type=number], textarea { width: 100%; padding: 12px 14px; border: 1.5px solid var(--garis); border-radius: 10px; font: 400 15px 'Inter', sans-serif; background: var(--putih); color: var(--teks); }
+  input[readonly] { background: #f7f5ee; }
+  input:focus, textarea:focus { outline: none; border-color: var(--kuning); box-shadow: 0 0 0 3px rgba(244,180,0,.18); }
+  .pilih { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; }
+  .pilih label { display: flex; align-items: center; gap: 10px; border: 1.5px solid var(--garis); border-radius: 12px; padding: 12px 14px; cursor: pointer; font-size: 14px; font-weight: 500; transition: border-color .15s, background .15s; }
+  .pilih label:has(input:checked) { border-color: var(--merah); background: #fff3f4; }
+  .pilih input { accent-color: var(--merah); width: 17px; height: 17px; }
+  .notis { background: var(--krim); border-left: 4px solid var(--kuning); padding: 12px 14px; border-radius: 8px; font-size: 14px; margin-top: 12px; }
+  .qr { text-align: center; margin-top: 14px; padding: 18px; border: 1.5px dashed var(--kuning); border-radius: 14px; background: var(--putih); }
+  .qr img { max-width: 240px; width: 100%; border-radius: 10px; }
+  .qr p { font-size: 14px; margin: 3px 0; }
+
+  /* Troli */
+  .baris { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 12px 0; border-bottom: 1px solid var(--garis); font-size: 15px; }
+  .baris:last-of-type { border-bottom: none; }
+  .baris small { color: var(--kelabu); font-size: 13px; }
+  .jumlah-baris { display: flex; justify-content: space-between; padding: 6px 0; font-size: 15px; color: var(--kelabu); }
+  .jumlah-akhir { display: flex; justify-content: space-between; padding-top: 12px; margin-top: 6px; border-top: 2px solid var(--kuning); font-size: 20px; font-weight: 600; }
+  .jumlah-akhir span:last-child { color: var(--merah); }
+  .kosong { color: var(--kelabu); text-align: center; padding: 12px 0; }
+
+  /* FAQ */
+  .faq { max-width: 720px; margin: 0 auto; }
+  details { border-bottom: 1px solid var(--garis); padding: 16px 0; }
+  summary { cursor: pointer; font-weight: 600; font-size: 16px; list-style: none; display: flex; justify-content: space-between; gap: 12px; }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: "+"; color: var(--merah); font-size: 22px; line-height: 1; }
+  details[open] summary::after { content: "\2212"; }
+  details p { color: var(--kelabu); margin-top: 10px; font-size: 15px; }
+
+  /* Footer */
+  footer { background: #1c1c1c; color: #d8d8d8; padding: 44px 0 26px; border-top: 4px solid var(--merah); }
+  .kolum { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 28px; margin-bottom: 26px; }
+  footer h4 { color: var(--kuning); font-family: 'Playfair Display', serif; font-size: 18px; margin-bottom: 10px; }
+  footer p { font-size: 14px; margin-bottom: 4px; }
+  footer .hak { border-top: 1px solid #333; padding-top: 16px; font-size: 12px; color: #999; text-align: center; }
+
+  .terapung { position: fixed; right: 18px; bottom: 18px; z-index: 30; box-shadow: 0 8px 22px rgba(200,16,46,.35); }
+
+  /* Admin */
+  #admin { background: #f6f6f6; border-top: 4px solid var(--kuning); }
+  .order-kad { background: var(--putih); border: 1px solid var(--garis); border-radius: 14px; padding: 18px; margin-bottom: 14px; }
+  .order-atas { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; margin-bottom: 8px; }
+  .order-no { font-weight: 600; color: var(--merah); font-size: 16px; }
+  .order-info { font-size: 14px; color: #444; }
+  .order-item { font-size: 13px; color: var(--kelabu); margin: 8px 0; white-space: pre-line; }
+  .order-tindakan { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 10px; }
+  select.status { padding: 10px 12px; border: 1.5px solid var(--garis); border-radius: 10px; font: 500 14px 'Inter', sans-serif; background: var(--putih); }
+  .lencana { display: inline-block; padding: 3px 12px; border-radius: 999px; font-size: 12px; font-weight: 600; background: #eee; color: #444; }
+  .lencana.s0 { background: #fdecea; color: #b3261e; }
+  .lencana.s1 { background: #fff4d6; color: #8a6100; }
+  .lencana.s2 { background: #e6f0ff; color: #1b4fa8; }
+  .lencana.s3 { background: #ece5ff; color: #5a3aa8; }
+  .lencana.s4 { background: #e3f6e8; color: #1c7a3a; }
 </style>
 </head>
 <body>
 
 <header>
-  <!-- EDIT DI SINI: letak fail logo awak bernama logo.png dalam folder yang sama -->
-  <img src="IMG-20261120-WA0991.jpg" alt="Logo Bambites" onerror="this.style.visibility='hidden'">
-  <div>
-    <h1>Bambites</h1>
-    <p id="tagline">Once You Bites, You'll Bite Again</p>
+  <div class="wrap bar">
+    <a class="jenama" href="#atas">
+      <img src="https://bambites.github.io/BamBites/IMG-20261120-WA0991.jpg" alt="Logo Bambites" onerror="this.style.display='none'">
+      <span>Bambites</span>
+    </a>
+    <nav>
+      <a href="#produk">Produk</a>
+      <a href="#tentang">Tentang Kami</a>
+      <a href="#tempahan">Tempahan</a>
+      <a href="#faq">Soalan Lazim</a>
+      <a href="#semak">Semak Order</a>
+    </nav>
   </div>
 </header>
 
-<nav>
-  <a href="#produk">Produk</a>
-  <a href="#troli">Troli</a>
-  <a href="#tempahan">Tempahan</a>
-  <a href="#semak">Semak Order</a>
-</nav>
-
-<main>
-  <script>
-// ============================================================
-// EDIT DI SINI: nombor WhatsApp bisnes awak
-// Format: kod negara + nombor, tanpa + dan tanpa sengkang.
-// Contoh: 60123456789
-// ============================================================
-const NOMBOR_WHATSAPP = "60172763876";
-
-// ============================================================
-// EDIT DI SINI: senarai produk asal.
-// Tambah, buang atau ubah baris ikut suka.
-// Gambar: letak fail gambar dalam folder yang sama, tulis namanya.
-// ============================================================
-const PRODUK_ASAL = [
-  { id: 1, nama: "Produk 1", harga: 0, gambar: "", penerangan: "" },
-  { id: 2, nama: "Produk 2", harga: 0, gambar: "", penerangan: "" },
-  { id: 3, nama: "Produk 3", harga: 0, gambar: "", penerangan: "" }
-];
-
-// ============================================================
-// EDIT DI SINI: teks notis untuk setiap cara penghantaran
-// ============================================================
-const NOTIS = {
-  "COD": "Notis COD: (isi syarat COD di sini, contoh kawasan dan masa).",
-  "Lalamove": "Notis Lalamove: (isi di sini). Caj Lalamove ditanggung pelanggan.",
-  "Pickup": "Notis Pickup: (isi alamat dan waktu ambil di sini).",
-  "Pos": "Notis Pos: penghantaran melalui pos untuk Semenanjung Malaysia sahaja. (isi tambahan di sini)."
-};
-
-// ---------- Data dan status ----------
-let produk = JSON.parse(localStorage.getItem("bambites_produk") || "null") || PRODUK_ASAL;
-let troli = {};
-let modEdit = false;
-
-function simpan() { localStorage.setItem("bambites_produk", JSON.stringify(produk)); }
-function rm(n) { return Number(n || 0).toFixed(2); }
-
-// ---------- Papar produk ----------
-function paparProduk() {
-  const kotak = document.getElementById("senaraiProduk");
-  kotak.innerHTML = "";
-  produk.forEach(p => {
-    const d = document.createElement("div");
-    d.className = "kad";
-    if (modEdit) {
-      d.innerHTML =
-        '<img src="' + (p.gambar || "") + '" alt="" onerror="this.style.visibility=\'hidden\'">' +
-        '<label>Nama</label><input value="' + p.nama + '" onchange="ubah(' + p.id + ',\'nama\',this.value)">' +
-        '<label>Harga (RM)</label><input type="number" step="0.01" value="' + p.harga + '" onchange="ubah(' + p.id + ',\'harga\',this.value)">' +
-        '<label>Nama fail gambar</label><input value="' + (p.gambar || "") + '" onchange="ubah(' + p.id + ',\'gambar\',this.value)">' +
-        '<label>Penerangan</label><input value="' + (p.penerangan || "") + '" onchange="ubah(' + p.id + ',\'penerangan\',this.value)">' +
-        '<div style="margin-top:8px"><button class="kelabu" onclick="buangProduk(' + p.id + ')">Buang</button></div>';
-    } else {
-      d.innerHTML =
-        '<img src="' + (p.gambar || "") + '" alt="' + p.nama + '" onerror="this.style.visibility=\'hidden\'">' +
-        '<h3>' + p.nama + '</h3>' +
-        '<div class="penerangan">' + (p.penerangan || "") + '</div>' +
-        '<div class="harga">RM ' + rm(p.harga) + '</div>' +
-        '<button onclick="tambahTroli(' + p.id + ')">Tambah ke Troli</button>';
-    }
-    kotak.appendChild(d);
-  });
-}
-
-// ---------- Mod edit katalog ----------
-function togolEdit() {
-  modEdit = !modEdit;
-  document.getElementById("editInfo").classList.toggle("tersembunyi", !modEdit);
-  paparProduk();
-}
-function ubah(id, medan, nilai) {
-  const p = produk.find(x => x.id === id);
-  if (!p) return;
-  p[medan] = (medan === "harga") ? Number(nilai) : nilai;
-  simpan();
-  paparProduk();
-}
-function tambahProduk() {
-  const idBaru = produk.length ? Math.max.apply(null, produk.map(p => p.id)) + 1 : 1;
-  produk.push({ id: idBaru, nama: "Produk Baru", harga: 0, gambar: "", penerangan: "" });
-  simpan(); paparProduk();
-}
-function buangProduk(id) {
-  produk = produk.filter(p => p.id !== id);
-  delete troli[id];
-  simpan(); paparProduk(); paparTroli();
-}
-function resetKatalog() {
-  if (confirm("Buang semua perubahan dan kembali ke senarai asal?")) {
-    localStorage.removeItem("bambites_produk");
-    produk = PRODUK_ASAL.slice();
-    troli = {};
-    paparProduk(); paparTroli();
-  }
-}
-
-// ---------- Troli ----------
-function tambahTroli(id) { troli[id] = (troli[id] || 0) + 1; paparTroli(); }
-function kurangTroli(id) { troli[id] = (troli[id] || 0) - 1; if (troli[id] <= 0) delete troli[id]; paparTroli(); }
-
-function paparTroli() {
-  const kotak = document.getElementById("isiTroli");
-  const ids = Object.keys(troli);
-  if (!ids.length) { kotak.innerHTML = "<p>Troli kosong.</p>"; kiraJumlah(); return; }
-  kotak.innerHTML = "";
-  ids.forEach(sid => {
-    const p = produk.find(x => x.id === Number(sid));
-    if (!p) return;
-    const b = document.createElement("div");
-    b.className = "baris";
-    b.innerHTML =
-      '<span>' + p.nama + ' x ' + troli[sid] + '</span>' +
-      '<span>RM ' + rm(p.harga * troli[sid]) + ' ' +
-      '<button class="kuning" onclick="kurangTroli(' + p.id + ')">-</button> ' +
-      '<button class="kuning" onclick="tambahTroli(' + p.id + ')">+</button></span>';
-    kotak.appendChild(b);
-  });
-  kiraJumlah();
-}
-
-function jumlahProduk() {
-  let t = 0;
-  Object.keys(troli).forEach(sid => {
-    const p = produk.find(x => x.id === Number(sid));
-    if (p) t += p.harga * troli[sid];
-  });
-  return t;
-}
-function kiraJumlah() {
-  const kos = Number(document.getElementById("kosHantar").value || 0);
-  document.getElementById("jumlahHarga").textContent = rm(jumlahProduk() + kos);
-}
-
-// ---------- Penghantaran dan pembayaran ----------
-function pilihan(nama) {
-  const r = document.querySelector('input[name="' + nama + '"]:checked');
-  return r ? r.value : "";
-}
-function tukarHantar() {
-  const n = document.getElementById("notisHantar");
-  const v = pilihan("hantar");
-  n.textContent = NOTIS[v] || "";
-  n.classList.toggle("tersembunyi", !v);
-}
-function tukarBayar() {
-  const v = pilihan("bayar");
-  document.getElementById("kotakQR").classList.toggle("tersembunyi", v !== "QR Code");
-  document.getElementById("kotakBank").classList.toggle("tersembunyi", v !== "Online Transfer");
-}
-
-// ---------- Hantar pesanan ke WhatsApp ----------
-function hantarPesanan() {
-  const nama = document.getElementById("nama").value.trim();
-  const tel = document.getElementById("telefon").value.trim();
-  const alamat = document.getElementById("alamat").value.trim();
-  const catatan = document.getElementById("catatan").value.trim();
-  const hantar = pilihan("hantar");
-  const bayar = pilihan("bayar");
-  const kos = Number(document.getElementById("kosHantar").value || 0);
-
-  if (!Object.keys(troli).length) { alert("Sila pilih produk dahulu."); return; }
-  if (!nama || !tel) { alert("Sila isi nama dan nombor telefon."); return; }
-  if (!hantar) { alert("Sila pilih cara penghantaran."); return; }
-  if (!bayar) { alert("Sila pilih cara pembayaran."); return; }
-
-  const noOrder = "BB-" + String(Date.now()).slice(-6);
-  let mesej = "*PESANAN BARU - Bambites*\n";
-  mesej += "No. Order: " + noOrder + "\n\n";
-  Object.keys(troli).forEach(sid => {
-    const p = produk.find(x => x.id === Number(sid));
-    if (p) mesej += "- " + p.nama + " x " + troli[sid] + " = RM " + rm(p.harga * troli[sid]) + "\n";
-  });
-  mesej += "\nJumlah produk: RM " + rm(jumlahProduk());
-  mesej += "\nKos hantar: RM " + rm(kos);
-  mesej += "\n*Jumlah keseluruhan: RM " + rm(jumlahProduk() + kos) + "*\n\n";
-  mesej += "Nama: " + nama + "\nTelefon: " + tel + "\n";
-  if (alamat) mesej += "Alamat: " + alamat + "\n";
-  mesej += "Penghantaran: " + hantar + "\nPembayaran: " + bayar + "\n";
-  if (catatan) mesej += "Catatan: " + catatan + "\n";
-  mesej += "\nSaya akan hantar bukti pembayaran selepas ini.";
-
-  window.open("https://wa.me/" + NOMBOR_WHATSAPP + "?text=" + encodeURIComponent(mesej), "_blank");
-}
-
-// ---------- Semak status order ----------
-function semakOrder() {
-  const no = document.getElementById("noOrder").value.trim();
-  if (!no) { alert("Sila masukkan nombor order."); return; }
-  const mesej = "Hai Bambites, boleh saya tahu status order " + no + "?";
-  window.open("https://wa.me/" + NOMBOR_WHATSAPP + "?text=" + encodeURIComponent(mesej), "_blank");
-}
-
-// ---------- Mula ----------
-paparProduk();
-paparTroli();
-</script>
-</body>
-</html>
-<!-- ===== BAHAGIAN PRODUK ===== -->
-<section id="produk">
-  <h2>Pilih Produk</h2>
-
-  <div class="edit-bar">
-    <button class="kuning" onclick="togolEdit()">Edit Katalog</button>
-    <span id="editInfo" class="tersembunyi">
-      <button onclick="tambahProduk()">+ Tambah Produk</button>
-      <button class="kelabu" onclick="resetKatalog()">Kosongkan Semua</button>
-    </span>
+<a id="atas"></a>
+<div class="hero">
+  <div class="wrap">
+    <img class="hero-logo" src="https://bambites.github.io/BamBites/IMG-20261120-WA0991.jpg" alt="Logo Bambites" onerror="this.style.display='none'"><br>
+    <p class="tagline">Once You Bite, You'll bites again</p>
+    <span class="kecil">Taiping</span>
+    <h1 class="sapaan">Hai, Thanks for choosing us. We are glad to be a part your happiness. Enjoy shopping buddies! &#128513;</h1>
+    <div class="garis-kuning"></div>
+    <a class="btn" href="#produk">Pilih &amp; Tempah</a>
   </div>
+</div>
 
-  <div id="senaraiProduk" class="grid"></div>
+<div class="jalur">
+  <div class="wrap">
+    <div><b>COD</b><span>Caj hanya RM5</span></div>
+    <div><b>Pos Semenanjung</b><span>Caj hanya RM8</span></div>
+    <div><b>Pickup</b><span>Jam 3.00 hingga 5.00 petang</span></div>
+    <div><b>Bayar Mudah</b><span>QR Code atau online transfer</span></div>
+  </div>
+</div>
+
+<!-- ===== PRODUK ===== -->
+<section id="produk">
+  <div class="wrap">
+    <div class="tajuk">
+      <h2>Tempah Produk Kami</h2>
+      <div class="garis-kuning"></div>
+      <p>Pilih produk, flavor, bilangan dan topping kegemaran anda.</p>
+    </div>
+
+    <div class="produk-kad">
+      <div class="produk-gambar" id="produkGambar"></div>
+      <div class="produk-isi">
+        <h3 id="produkNama"></h3>
+        <p class="penerangan" id="produkPenerangan"></p>
+
+        <div class="bina">
+          <h4>1. Pilih Produk</h4>
+          <div id="pilihProduk" class="opsi-grid lebar"></div>
+
+          <h4>2. Pilih Flavor</h4>
+          <div id="pilihFlavor" class="opsi-grid"></div>
+
+          <h4>3. Pilih Bilangan</h4>
+          <p class="nota" id="notaPakej"></p>
+          <div id="pilihPakej" class="opsi-grid"></div>
+
+          <h4>4. Pilih Topping <span id="kiraTopping"></span></h4>
+          <p class="nota">Bahagikan topping mengikut bilangan yang anda pilih.</p>
+          <div id="pilihTopping"></div>
+
+          <div class="ringkas"><span>Harga</span><span class="nilai">RM <span id="hargaPilihan">0.00</span></span></div>
+          <button id="btnTambah" class="btn" style="width:100%" onclick="tambahTroli()" disabled>Tambah ke Troli</button>
+          <p id="mesejPilih" class="nota" style="margin-top:10px;text-align:center"></p>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- ===== TROLI ===== -->
-<section id="troli">
-  <h2>Troli Anda</h2>
-  <div class="panel">
-    <div id="isiTroli"><p>Troli kosong.</p></div>
-    <div class="jumlah">Jumlah: RM <span id="jumlahHarga">0.00</span></div>
+<!-- ===== CARA ORDER ===== -->
+<section>
+  <div class="wrap">
+    <div class="tajuk">
+      <h2>Cara Membuat Tempahan</h2>
+      <div class="garis-kuning"></div>
+    </div>
+    <div class="langkah">
+      <div><div class="nombor">1</div><b>Pilih Produk &amp; Flavor</b><span>Pilih produk kegemaran dan flavor yang anda suka.</span></div>
+      <div><div class="nombor">2</div><b>Pilih Bilangan &amp; Topping</b><span>Bahagikan topping mengikut bilangan yang dipilih.</span></div>
+      <div><div class="nombor">3</div><b>Hantar di WhatsApp</b><span>Tempahan terus sampai kepada kami dan kami akan maklumkan status.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TENTANG ===== -->
+<section id="tentang" class="tentang">
+  <div class="wrap">
+    <div class="tajuk">
+      <h2>Tentang Kami</h2>
+      <div class="garis-kuning"></div>
+    </div>
+    <div class="kotak">
+      <p>Bambites dari Taiping menghasilkan Brown Butter Banana Bread, mini banana muffin dan kek pisang moist, dengan resepi olahan sendiri.</p>
+    </div>
+    <div class="ciri">
+      <div><b>100% Pure Butter</b><span>Menggunakan sepenuhnya pure butter tanpa campuran minyak.</span></div>
+      <div><b>Tiada Perasa Tambahan</b><span>Tidak menggunakan perasa pisang tambahan.</span></div>
+      <div><b>Resepi Sendiri</b><span>Sepenuhnya resepi olahan sendiri.</span></div>
+    </div>
   </div>
 </section>
 
 <!-- ===== TEMPAHAN ===== -->
 <section id="tempahan">
-  <h2>Maklumat Tempahan</h2>
-  <div class="panel">
-
-    <label for="nama">Nama</label>
-    <input id="nama" type="text" placeholder="Nama penuh">
-
-    <label for="telefon">No. Telefon</label>
-    <input id="telefon" type="tel" placeholder="01x-xxxxxxx">
-
-    <label for="alamat">Alamat</label>
-    <textarea id="alamat" rows="3" placeholder="Alamat penghantaran (kosongkan jika pickup)"></textarea>
-
-    <label for="catatan">Catatan</label>
-    <textarea id="catatan" rows="2" placeholder="Contoh: tarikh diperlukan, permintaan khas"></textarea>
-
-    <label>Cara Penghantaran</label>
-    <div class="pilihan">
-      <label><input type="radio" name="hantar" value="COD" onchange="tukarHantar()"> COD (Cash on Delivery)</label>
-      <label><input type="radio" name="hantar" value="Lalamove" onchange="tukarHantar()"> Lalamove</label>
-      <label><input type="radio" name="hantar" value="Pickup" onchange="tukarHantar()"> Pickup sendiri</label>
-      <label><input type="radio" name="hantar" value="Pos" onchange="tukarHantar()"> Pos (Semenanjung Malaysia sahaja)</label>
+  <div class="wrap borang">
+    <div class="tajuk">
+      <h2>Buat Tempahan</h2>
+      <div class="garis-kuning"></div>
     </div>
 
-    <!-- EDIT DI SINI: tukar teks notis ikut keperluan bisnes awak -->
-    <div id="notisHantar" class="notis tersembunyi"></div>
-
-    <label for="harga-hantar">Kos Penghantaran (RM)</label>
-    <input id="kosHantar" type="number" min="0" step="0.01" placeholder="0.00" oninput="kiraJumlah()">
-    <p style="font-size:12px;color:#666">Awak boleh isi kos ini, atau pelanggan akan dimaklumkan melalui WhatsApp.</p>
-
-    <label style="margin-top:16px">Cara Pembayaran</label>
-    <div class="pilihan">
-      <label><input type="radio" name="bayar" value="QR Code" onchange="tukarBayar()"> QR Code</label>
-      <label><input type="radio" name="bayar" value="Online Transfer" onchange="tukarBayar()"> Online Transfer</label>
+    <div class="kotak-putih" id="troli">
+      <h3>Troli Anda</h3>
+      <div id="isiTroli"><p class="kosong">Troli masih kosong.</p></div>
+      <div class="jumlah-baris"><span>Jumlah produk</span><span>RM <span id="jumlahProduk">0.00</span></span></div>
+      <div class="jumlah-baris"><span>Kos penghantaran</span><span>RM <span id="paparKos">0.00</span></span></div>
+      <div class="jumlah-akhir"><span>Jumlah</span><span>RM <span id="jumlahHarga">0.00</span></span></div>
     </div>
 
-    <!-- EDIT DI SINI: letak gambar QR code awak bernama qr.png dalam folder yang sama -->
-    <div id="kotakQR" class="qr-kotak tersembunyi">
-      <img src="IMG-20261120-WA0990.jpg" alt="QR Code pembayaran" onerror="this.alt='Letak fail qr.png di sini'">
-      <p>Imbas QR code untuk bayar.</p>
+    <div class="kotak-putih">
+      <h3>Maklumat Anda</h3>
+      <label class="medan" for="nama">Nama</label>
+      <input id="nama" type="text" placeholder="Nama penuh" autocomplete="name">
+      <label class="medan" for="telefon">No. Telefon</label>
+      <input id="telefon" type="tel" placeholder="01x-xxxxxxx" autocomplete="tel">
+      <label class="medan" for="alamat">Alamat</label>
+      <textarea id="alamat" rows="3" placeholder="Alamat penghantaran (kosongkan jika pickup)"></textarea>
+      <label class="medan" for="catatan">Catatan</label>
+      <textarea id="catatan" rows="2" placeholder="Contoh: tarikh diperlukan, permintaan khas"></textarea>
     </div>
 
-    <!-- EDIT DI SINI: isi butiran bank awak -->
-    <div id="kotakBank" class="qr-kotak tersembunyi">
-      <p><b>Nama Bank:</b> (isi di sini)</p>
-      <p><b>No. Akaun:</b> (isi di sini)</p>
-      <p><b>Nama Pemilik Akaun:</b> (isi di sini)</p>
+    <div class="kotak-putih">
+      <h3>Cara Penghantaran</h3>
+      <div class="pilih">
+        <label><input type="radio" name="hantar" value="COD" onchange="tukarHantar()"> COD</label>
+        <label><input type="radio" name="hantar" value="Lalamove" onchange="tukarHantar()"> Lalamove</label>
+        <label><input type="radio" name="hantar" value="Pickup" onchange="tukarHantar()"> Pickup sendiri</label>
+        <label><input type="radio" name="hantar" value="Pos" onchange="tukarHantar()"> Pos</label>
+      </div>
+      <p style="font-size:13px;color:#6b6b6b;margin-top:10px">Penghantaran melalui pos untuk Semenanjung Malaysia sahaja.</p>
+      <div id="notisHantar" class="notis tersembunyi"></div>
+      <label class="medan" for="kosHantar">Kos Penghantaran (RM)</label>
+      <input id="kosHantar" type="number" min="0" step="0.01" placeholder="0.00" oninput="kiraJumlah()">
     </div>
 
-    <div class="notis">Selepas bayar, sila hantar bukti pembayaran melalui WhatsApp selepas menekan butang di bawah.</div>
+    <div class="kotak-putih">
+      <h3>Cara Pembayaran</h3>
+      <div class="pilih">
+        <label><input type="radio" name="bayar" value="QR Code" onchange="tukarBayar()"> QR Code</label>
+        <label><input type="radio" name="bayar" value="Online Transfer" onchange="tukarBayar()"> Online Transfer</label>
+      </div>
 
-    <div style="margin-top:16px;text-align:center">
-      <button onclick="hantarPesanan()" style="font-size:16px;padding:12px 28px">Hantar Pesanan ke WhatsApp</button>
+      <div id="kotakQR" class="qr tersembunyi">
+        <img src="https://bambites.github.io/BamBites/IMG-20261120-WA0990.jpg" alt="QR Code pembayaran" onerror="this.alt='Gambar QR belum dimuat naik'">
+        <p>Imbas QR code untuk membayar.</p>
+      </div>
+
+      <div id="kotakBank" class="qr tersembunyi"></div>
+
+      <div class="notis">Selepas membayar, sila hantar bukti pembayaran melalui WhatsApp selepas menekan butang di bawah.</div>
+    </div>
+
+    <div style="text-align:center">
+      <button class="btn" style="font-size:16px;padding:15px 36px" onclick="hantarPesanan()">Hantar Pesanan ke WhatsApp</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section id="faq" class="tentang">
+  <div class="wrap">
+    <div class="tajuk">
+      <h2>Soalan Lazim</h2>
+      <div class="garis-kuning"></div>
+    </div>
+    <div class="faq">
+      <details><summary>Bagaimana cara membuat tempahan?</summary><p>Pilih produk, flavor, bilangan dan topping, tambah ke troli, isi maklumat anda, kemudian tekan Hantar Pesanan. Mesej tempahan akan dibuka terus dalam WhatsApp.</p></details>
+      <details><summary>Bagaimana topping dipilih?</summary><p>Topping dibahagikan mengikut bilangan yang anda pilih. Contohnya jika anda pilih 4, anda boleh pilih 2 Plain, 1 Choc Chip dan 1 Nutty.</p></details>
+      <details><summary>Apakah waktu operasi?</summary><p>Isnin hingga Jumaat, 9.00 pagi hingga 9.00 malam.</p></details>
+      <details><summary>Adakah penghantaran ke seluruh Malaysia?</summary><p>Penghantaran melalui pos untuk Semenanjung Malaysia sahaja. Kami juga menyediakan COD, Lalamove dan pickup.</p></details>
+      <details><summary>Bagaimana cara membayar?</summary><p>Anda boleh membayar melalui QR code atau online transfer. Sila hantar bukti pembayaran melalui WhatsApp.</p></details>
     </div>
   </div>
 </section>
 
 <!-- ===== SEMAK ORDER ===== -->
 <section id="semak">
-  <h2>Semak Status Order</h2>
-  <div class="panel">
-    <p>Masukkan nombor order anda untuk tanya status melalui WhatsApp.</p>
-    <label for="noOrder">Nombor Order</label>
-    <input id="noOrder" type="text" placeholder="Contoh: BB-123456">
-    <div style="margin-top:12px"><button onclick="semakOrder()">Semak di WhatsApp</button></div>
+  <div class="wrap borang">
+    <div class="tajuk">
+      <h2>Semak Status Order</h2>
+      <div class="garis-kuning"></div>
+      <p>Masukkan nombor order anda untuk bertanya status melalui WhatsApp.</p>
+    </div>
+    <div class="kotak-putih">
+      <label class="medan" for="noOrder" style="margin-top:0">Nombor Order</label>
+      <input id="noOrder" type="text" placeholder="Contoh: BB-123456">
+      <div style="margin-top:16px;text-align:center"><button class="btn garis" onclick="semakOrder()">Semak di WhatsApp</button></div>
+    </div>
   </div>
 </section>
 
-</main>
+<!-- ===== ADMIN (hanya nampak bila alamat website ditambah #admin) ===== -->
+<section id="admin" class="tersembunyi">
+  <div class="wrap borang">
+    <div class="tajuk">
+      <h2>Urus Order</h2>
+      <div class="garis-kuning"></div>
+      <p>Hanya awak yang nampak bahagian ini. Data disimpan dalam browser peranti ini sahaja.</p>
+    </div>
+
+    <div class="kotak-putih">
+      <h3>Tambah Order</h3>
+      <p style="font-size:14px;color:#6b6b6b;margin-bottom:8px">Salin mesej tempahan yang pelanggan hantar di WhatsApp, kemudian tampal di bawah.</p>
+      <textarea id="mesejOrder" rows="6" placeholder="Tampal mesej PESANAN BARU di sini"></textarea>
+      <div style="margin-top:12px"><button class="btn" onclick="tambahOrder()">Simpan Order</button></div>
+    </div>
+
+    <div id="senaraiOrder"></div>
+  </div>
+</section>
 
 <footer>
-  <p>&copy; Bambites. Semua hak terpelihara.</p>
+  <div class="wrap">
+    <div class="kolum">
+      <div>
+        <h4>Bambites</h4>
+        <p>Once You Bite, You'll bites again</p>
+        <p>No. SSM: AS0505910-U</p>
+      </div>
+      <div>
+        <h4>Hubungi Kami</h4>
+        <p id="footWa" class="tersembunyi"></p>
+        <p>Waktu operasi: Isnin hingga Jumaat, 9.00 pagi hingga 9.00 malam</p>
+        <p>Kawasan: Taiping</p>
+      </div>
+      <div>
+        <h4>Pautan</h4>
+        <p><a href="#produk">Tempah</a></p>
+        <p><a href="#tempahan">Troli</a></p>
+        <p><a href="#faq">Soalan Lazim</a></p>
+      </div>
+    </div>
+    <div class="hak">&copy; Bambites. Semua hak terpelihara.</div>
+  </div>
 </footer>
+
+<a class="btn terapung tersembunyi" id="butangTroli" href="#troli">Troli (<span id="bilTroli">0</span>)</a>
+
 <script>
 // ============================================================
-// EDIT DI SINI: nombor WhatsApp bisnes awak
+// EDIT DI SINI (1): nombor WhatsApp bisnes awak
 // Format: kod negara + nombor, tanpa + dan tanpa sengkang.
 // Contoh: 60123456789
 // ============================================================
-const NOMBOR_WHATSAPP = "60XXXXXXXXX";
+const NOMBOR_WHATSAPP = "60172763876";
 
 // ============================================================
-// EDIT DI SINI: senarai produk asal.
-// Tambah, buang atau ubah baris ikut suka.
-// Gambar: letak fail gambar dalam folder yang sama, tulis namanya.
+// EDIT DI SINI (2): butiran bank untuk Online Transfer.
+// Biarkan kosong ("") jika belum mahu tunjuk.
 // ============================================================
-const PRODUK_ASAL = [
-  { id: 1, nama: "Produk 1", harga: 0, gambar: "", penerangan: "" },
-  { id: 2, nama: "Produk 2", harga: 0, gambar: "", penerangan: "" },
-  { id: 3, nama: "Produk 3", harga: 0, gambar: "", penerangan: "" }
+const BANK = { nama: "", akaun: "", pemilik: "" };
+
+// ============================================================
+// EDIT DI SINI (3): SENARAI PRODUK DAN HARGA
+//
+// Setiap produk ada:
+//   nama, penerangan, gambar (nama fail gambar, boleh kosong)
+//   unit   : perkataan selepas bilangan, contoh "mini loaf", "unit"
+//   maks   : had maksimum dalam troli untuk produk ini (semua flavor digabung)
+//   pakej  : bilangan set tetap, contoh [2, 4, 6, 8]. Pelanggan boleh tambah beberapa set.
+//   bebas  : true = pelanggan pilih sendiri sebarang bilangan (1 hingga maks)
+//            (guna salah satu sahaja: pakej ATAU bebas)
+//   flavor : senarai flavor dan harga
+//   topping: senarai topping
+//
+// CARA TUKAR HARGA:
+//   harga: 0          -> harga SATU unit (RM). Tukar 0 kepada harga sebenar.
+//                        Jumlah = harga x bilangan.
+//   harga: { 2: 16, 4: 32, 6: 48, 8: 64 }
+//                     -> harga untuk setiap set. Ubah nombor selepas tanda :
+//
+// Selagi harga masih 0, produk itu tidak boleh ditempah
+// dan pelanggan nampak "Hubungi kami".
+//
+// TAMBAH FLAVOR: salin satu baris flavor, tampal di bawahnya, tukar nama dan harga.
+// TAMBAH TOPPING: tambah "Nama Topping", dalam senarai topping.
+// TAMBAH PRODUK: salin satu blok produk (dari { hingga },) dan ubah isinya.
+// Pastikan ada koma di hujung setiap item kecuali yang terakhir.
+// ============================================================
+const PRODUK = [
+  {
+    nama: "Brown Butter Banana Bread Mini Loaf",
+    penerangan: "Banana bread mini loaf menggunakan pure butter sepenuhnya, dengan resepi olahan sendiri.",
+    gambar: "",
+    unit: "mini loaf",
+    maks: 50,
+    pakej: [2, 4, 6, 8],
+    flavor: [
+      { nama: "Classic", harga: { 2: 16, 4: 32, 6: 48, 8: 64 } },
+      { nama: "Dark",    harga: { 2: 17, 4: 34, 6: 51, 8: 68 } }
+    ],
+    topping: ["Plain", "Choc Chip", "Choc Chunk", "Nutty", "Drizzle Choc", "Drizzle Nutty"]
+  },
+  {
+    nama: "Loaf Brown Butter Banana Bread",
+    penerangan: "Brown butter banana bread dalam bentuk loaf.",
+    gambar: "",
+    unit: "loaf",
+    maks: 50,
+    bebas: true,
+    flavor: [
+      { nama: "Classic", harga: 0 },
+      { nama: "Dark",    harga: 0 },
+      { nama: "Cheese",  harga: 0 }
+    ],
+    topping: ["Plain", "Choc Chip", "Choc Chunk", "Chip Chunk", "Drizzle Nutty"]
+  },
+  {
+    nama: "Brown Butter Banana Bread 6 Inch",
+    penerangan: "Brown butter banana bread saiz 6 inci.",
+    gambar: "",
+    unit: "unit",
+    maks: 50,
+    bebas: true,
+    flavor: [
+      { nama: "Classic", harga: 0 },
+      { nama: "Dark",    harga: 0 },
+      { nama: "Cheese",  harga: 0 }
+    ],
+    topping: ["Plain", "Choc Chip", "Choc Chunk", "Chip Chunk Choc", "Drizzle Nutty", "Choc Berlemoih"]
+  },
+  {
+    nama: "Mini Banana Muffin",
+    penerangan: "Mini banana muffin.",
+    gambar: "",
+    unit: "pcs",
+    maks: 50,
+    pakej: [25, 50],
+    flavor: [
+      { nama: "Classic", harga: { 25: 0, 50: 0 } },
+      { nama: "Dark",    harga: { 25: 0, 50: 0 } },
+      { nama: "Cheese",  harga: { 25: 0, 50: 0 } }
+    ],
+    topping: ["Plain", "Choc Chip", "Nutty", "Crumbs"]
+  },
+  {
+    nama: "Kek Pisang Moist",
+    penerangan: "Kek pisang yang moist.",
+    gambar: "",
+    unit: "unit",
+    maks: 50,
+    bebas: true,
+    flavor: [
+      { nama: "Classic", harga: 0 },
+      { nama: "Dark",    harga: 0 },
+      { nama: "Cheese",  harga: 0 }
+    ],
+    topping: ["Plain", "Choc Chip", "Choc Chunk", "Chip Chunk Choc", "Drizzle Nutty", "Choc Berlemoih"]
+  }
 ];
 
 // ============================================================
-// EDIT DI SINI: teks notis untuk setiap cara penghantaran
+// EDIT DI SINI (4): notis dan kos penghantaran
 // ============================================================
 const NOTIS = {
-  "COD": "Notis COD: (isi syarat COD di sini, contoh kawasan dan masa).",
-  "Lalamove": "Notis Lalamove: (isi di sini). Caj Lalamove ditanggung pelanggan.",
-  "Pickup": "Notis Pickup: (isi alamat dan waktu ambil di sini).",
-  "Pos": "Notis Pos: penghantaran melalui pos untuk Semenanjung Malaysia sahaja. (isi tambahan di sini)."
+  "COD": "COD: caj penghantaran RM5.00.",
+  "Lalamove": "Lalamove: caj ikut jarak dan akan dimaklumkan melalui WhatsApp. Caj ditanggung pelanggan.",
+  "Pickup": "Pickup: percuma, boleh diambil pada jam 3.00 petang hingga 5.00 petang. Alamat pickup akan dimaklumkan melalui WhatsApp.",
+  "Pos": "Pos: caj RM8.00, untuk Semenanjung Malaysia sahaja."
 };
+const KOS_HANTAR = { "COD": 5, "Pos": 8, "Pickup": 0 };
 
-// ---------- Data dan status ----------
-let produk = JSON.parse(localStorage.getItem("bambites_produk") || "null") || PRODUK_ASAL;
-let troli = {};
-let modEdit = false;
+const LOGO_URL = "https://bambites.github.io/BamBites/IMG-20261120-WA0991.jpg";
+const TAPAK = "https://bambites.github.io/BamBites/";
+function urlGambar(g) { return /^https?:\/\//.test(g) ? g : TAPAK + g; }
 
-function simpan() { localStorage.setItem("bambites_produk", JSON.stringify(produk)); }
+// ============================================================
+// Kod di bawah ini tidak perlu diubah
+// ============================================================
 function rm(n) { return Number(n || 0).toFixed(2); }
+function esc(s) {
+  return String(s == null ? "" : s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+}
 
-// ---------- Papar produk ----------
-function paparProduk() {
-  const kotak = document.getElementById("senaraiProduk");
-  kotak.innerHTML = "";
-  produk.forEach(p => {
-    const d = document.createElement("div");
-    d.className = "kad";
-    if (modEdit) {
-      d.innerHTML =
-        '<img src="' + (p.gambar || "") + '" alt="" onerror="this.style.visibility=\'hidden\'">' +
-        '<label>Nama</label><input value="' + p.nama + '" onchange="ubah(' + p.id + ',\'nama\',this.value)">' +
-        '<label>Harga (RM)</label><input type="number" step="0.01" value="' + p.harga + '" onchange="ubah(' + p.id + ',\'harga\',this.value)">' +
-        '<label>Nama fail gambar</label><input value="' + (p.gambar || "") + '" onchange="ubah(' + p.id + ',\'gambar\',this.value)">' +
-        '<label>Penerangan</label><input value="' + (p.penerangan || "") + '" onchange="ubah(' + p.id + ',\'penerangan\',this.value)">' +
-        '<div style="margin-top:8px"><button class="kelabu" onclick="buangProduk(' + p.id + ')">Buang</button></div>';
-    } else {
-      d.innerHTML =
-        '<img src="' + (p.gambar || "") + '" alt="' + p.nama + '" onerror="this.style.visibility=\'hidden\'">' +
-        '<h3>' + p.nama + '</h3>' +
-        '<div class="penerangan">' + (p.penerangan || "") + '</div>' +
-        '<div class="harga">RM ' + rm(p.harga) + '</div>' +
-        '<button onclick="tambahTroli(' + p.id + ')">Tambah ke Troli</button>';
-    }
-    kotak.appendChild(d);
+let pilih = { produk: 0, flavor: 0, pakej: 0, topping: {} };
+let troli = [];
+
+function produkSemasa() { return PRODUK[pilih.produk] || PRODUK[0]; }
+function hargaSet(f, n) {
+  const h = f ? f.harga : 0;
+  if (typeof h === "number") return h * n;
+  return Number((h || {})[n] || 0);
+}
+function jumlahTopping() {
+  let t = 0;
+  Object.keys(pilih.topping).forEach(k => { t += pilih.topping[k]; });
+  return t;
+}
+function ringkasTopping(t) {
+  return Object.keys(t).filter(k => t[k] > 0).map(k => t[k] + " " + k).join(", ");
+}
+
+// ---------- Papar pembina produk ----------
+function paparBina() {
+  const p = produkSemasa();
+  if (pilih.flavor >= p.flavor.length) pilih.flavor = 0;
+  const f = p.flavor[pilih.flavor];
+  const maks = p.maks || 50;
+  const baki = bakiProduk(p);
+  if (pilih.pakej > baki) { pilih.pakej = 0; pilih.topping = {}; }
+
+  document.getElementById("produkNama").textContent = p.nama;
+  document.getElementById("produkPenerangan").textContent = p.penerangan;
+  document.getElementById("produkGambar").innerHTML = p.gambar
+    ? '<img src="' + esc(urlGambar(p.gambar)) + '" alt="' + esc(p.nama) + '" onerror="this.style.display=\'none\'">'
+    : '<img src="' + LOGO_URL + '" alt="" style="width:46%;height:46%;object-fit:contain;opacity:.22" onerror="this.style.display=\'none\'">';
+
+  let h = "";
+  PRODUK.forEach((x, i) => {
+    h += '<button class="opsi' + (i === pilih.produk ? " aktif" : "") + '" onclick="pilihProduk(' + i + ')">' + esc(x.nama) + '</button>';
   });
+  document.getElementById("pilihProduk").innerHTML = h;
+
+  h = "";
+  p.flavor.forEach((x, i) => {
+    h += '<button class="opsi' + (i === pilih.flavor ? " aktif" : "") + '" onclick="pilihFlavor(' + i + ')">' + esc(x.nama) + '</button>';
+  });
+  document.getElementById("pilihFlavor").innerHTML = h;
+
+  const hadTeks = "Dalam troli: " + (maks - baki) + " / " + maks + " " + p.unit + ".";
+  document.getElementById("notaPakej").textContent = p.bebas
+    ? "Pilih bilangan " + p.unit + ", maksimum " + maks + ". " + hadTeks
+    : "Bilangan: " + p.pakej.join(", ") + " " + p.unit + ". Boleh tambah beberapa set, maksimum " + maks + " " + p.unit + ". " + hadTeks;
+  h = "";
+  if (p.bebas) {
+    const hu = hargaSet(f, 1);
+    h = '<div class="bilangan-bebas"><span class="kuantiti">' +
+      '<button onclick="ubahBilangan(-1)"' + (pilih.pakej <= 0 ? " disabled" : "") + '>-</button>' +
+      '<input type="number" min="0" max="' + baki + '" value="' + pilih.pakej + '" onchange="setBilangan(this.value)">' +
+      '<button onclick="ubahBilangan(1)"' + (pilih.pakej >= baki ? " disabled" : "") + '>+</button></span>' +
+      '<small>' + (hu > 0 ? 'RM ' + rm(hu) + ' / ' + esc(p.unit) : 'Hubungi kami') + '</small></div>';
+  } else {
+    p.pakej.forEach(n => {
+      const hg = hargaSet(f, n);
+      h += '<button class="opsi' + (n === pilih.pakej ? " aktif" : "") + '"' + (n > baki ? " disabled" : "") + ' onclick="pilihPakej(' + n + ')">' + n + ' ' + esc(p.unit) + '<small>' + (hg > 0 ? 'RM ' + rm(hg) : 'Hubungi kami') + '</small></button>';
+    });
+  }
+  document.getElementById("pilihPakej").innerHTML = h;
+
+  const jumlah = jumlahTopping();
+  const penuh = !pilih.pakej || jumlah >= pilih.pakej;
+  h = "";
+  p.topping.forEach((t, i) => {
+    const q = pilih.topping[t] || 0;
+    h += '<div class="topping-baris"><span>' + esc(t) + '</span><span class="kuantiti">' +
+      '<button onclick="ubahTopping(' + i + ',-1)"' + (q === 0 ? " disabled" : "") + '>-</button>' +
+      '<b>' + q + '</b>' +
+      '<button onclick="ubahTopping(' + i + ',1)"' + (penuh ? " disabled" : "") + '>+</button></span></div>';
+  });
+  document.getElementById("pilihTopping").innerHTML = h;
+  document.getElementById("kiraTopping").textContent = pilih.pakej ? "(" + jumlah + " / " + pilih.pakej + ")" : "";
+
+  const harga = pilih.pakej ? hargaSet(f, pilih.pakej) : 0;
+  const perluTopping = p.topping.length > 0;
+  const lengkap = pilih.pakej > 0 && harga > 0 && (!perluTopping || jumlah === pilih.pakej);
+  document.getElementById("hargaPilihan").textContent = rm(harga);
+  document.getElementById("btnTambah").disabled = !lengkap;
+
+  let mesej = "";
+  if (baki <= 0) mesej = "Had maksimum " + maks + " " + p.unit + " sudah dicapai untuk produk ini.";
+  else if (!pilih.pakej) mesej = "Pilih bilangan dahulu.";
+  else if (harga <= 0) mesej = "Harga belum ditetapkan. Sila hubungi kami melalui WhatsApp.";
+  else if (perluTopping && jumlah < pilih.pakej) mesej = "Pilih " + (pilih.pakej - jumlah) + " topping lagi.";
+  else mesej = "Sedia ditambah ke troli.";
+  document.getElementById("mesejPilih").textContent = mesej;
 }
 
-// ---------- Mod edit katalog ----------
-function togolEdit() {
-  modEdit = !modEdit;
-  document.getElementById("editInfo").classList.toggle("tersembunyi", !modEdit);
-  paparProduk();
+function pilihProduk(i) { pilih = { produk: i, flavor: 0, pakej: 0, topping: {} }; paparBina(); }
+function pilihFlavor(i) { pilih.flavor = i; paparBina(); }
+function bakiProduk(p) {
+  let t = 0;
+  troli.forEach(b => { if (b.produk === p.nama) t += b.pakej; });
+  return Math.max(0, (p.maks || 50) - t);
 }
-function ubah(id, medan, nilai) {
-  const p = produk.find(x => x.id === id);
-  if (!p) return;
-  p[medan] = (medan === "harga") ? Number(nilai) : nilai;
-  simpan();
-  paparProduk();
+function pilihPakej(n) {
+  if (n > bakiProduk(produkSemasa())) return;
+  if (pilih.pakej !== n) pilih.topping = {};
+  pilih.pakej = n;
+  paparBina();
 }
-function tambahProduk() {
-  const idBaru = produk.length ? Math.max.apply(null, produk.map(p => p.id)) + 1 : 1;
-  produk.push({ id: idBaru, nama: "Produk Baru", harga: 0, gambar: "", penerangan: "" });
-  simpan(); paparProduk();
+function ubahBilangan(d) { setBilangan(pilih.pakej + d); }
+function setBilangan(v) {
+  const baki = bakiProduk(produkSemasa());
+  let n = parseInt(v, 10);
+  if (isNaN(n) || n < 0) n = 0;
+  if (n > baki) n = baki;
+  pilih.pakej = n;
+  if (jumlahTopping() > n) pilih.topping = {};
+  paparBina();
 }
-function buangProduk(id) {
-  produk = produk.filter(p => p.id !== id);
-  delete troli[id];
-  simpan(); paparProduk(); paparTroli();
-}
-function resetKatalog() {
-  if (confirm("Buang semua perubahan dan kembali ke senarai asal?")) {
-    localStorage.removeItem("bambites_produk");
-    produk = PRODUK_ASAL.slice();
-    troli = {};
-    paparProduk(); paparTroli();
-  }
+function ubahTopping(i, d) {
+  const nama = produkSemasa().topping[i];
+  const semasa = pilih.topping[nama] || 0;
+  if (d > 0 && (!pilih.pakej || jumlahTopping() >= pilih.pakej)) return;
+  const baru = semasa + d;
+  if (baru < 0) return;
+  if (baru === 0) delete pilih.topping[nama]; else pilih.topping[nama] = baru;
+  paparBina();
 }
 
 // ---------- Troli ----------
-function tambahTroli(id) { troli[id] = (troli[id] || 0) + 1; paparTroli(); }
-function kurangTroli(id) { troli[id] = (troli[id] || 0) - 1; if (troli[id] <= 0) delete troli[id]; paparTroli(); }
+function tambahTroli() {
+  const p = produkSemasa();
+  const f = p.flavor[pilih.flavor];
+  if (!f || !pilih.pakej) return;
+  const harga = hargaSet(f, pilih.pakej);
+  if (harga <= 0) return;
+  if (pilih.pakej > bakiProduk(p)) return;
+  if (p.topping.length && jumlahTopping() !== pilih.pakej) return;
+  troli.push({
+    produk: p.nama,
+    flavor: f.nama,
+    pakej: pilih.pakej,
+    unit: p.unit,
+    harga: harga,
+    topping: JSON.parse(JSON.stringify(pilih.topping))
+  });
+  pilih.pakej = 0;
+  pilih.topping = {};
+  paparBina();
+  paparTroli();
+}
+function buangBaris(i) { troli.splice(i, 1); paparTroli(); }
 
 function paparTroli() {
   const kotak = document.getElementById("isiTroli");
-  const ids = Object.keys(troli);
-  if (!ids.length) { kotak.innerHTML = "<p>Troli kosong.</p>"; kiraJumlah(); return; }
-  kotak.innerHTML = "";
-  ids.forEach(sid => {
-    const p = produk.find(x => x.id === Number(sid));
-    if (!p) return;
-    const b = document.createElement("div");
-    b.className = "baris";
-    b.innerHTML =
-      '<span>' + p.nama + ' x ' + troli[sid] + '</span>' +
-      '<span>RM ' + rm(p.harga * troli[sid]) + ' ' +
-      '<button class="kuning" onclick="kurangTroli(' + p.id + ')">-</button> ' +
-      '<button class="kuning" onclick="tambahTroli(' + p.id + ')">+</button></span>';
-    kotak.appendChild(b);
-  });
+  if (!troli.length) {
+    kotak.innerHTML = '<p class="kosong">Troli masih kosong.</p>';
+  } else {
+    kotak.innerHTML = "";
+    troli.forEach((b, i) => {
+      const d = document.createElement("div");
+      d.className = "baris";
+      const t = ringkasTopping(b.topping);
+      d.innerHTML =
+        '<span><b>' + esc(b.produk) + '</b><br>' + esc(b.flavor) + ', ' + b.pakej + ' ' + esc(b.unit) + (t ? '<br><small>' + esc(t) + '</small>' : '') + '</span>' +
+        '<span style="text-align:right"><b>RM ' + rm(b.harga) + '</b><br><button class="btn kecil kelabu" style="padding:5px 12px;margin-top:4px" onclick="buangBaris(' + i + ')">Buang</button></span>';
+      kotak.appendChild(d);
+    });
+  }
+  document.getElementById("bilTroli").textContent = troli.length;
+  document.getElementById("butangTroli").classList.toggle("tersembunyi", troli.length === 0);
   kiraJumlah();
 }
 
 function jumlahProduk() {
   let t = 0;
-  Object.keys(troli).forEach(sid => {
-    const p = produk.find(x => x.id === Number(sid));
-    if (p) t += p.harga * troli[sid];
-  });
+  troli.forEach(b => { t += b.harga; });
   return t;
 }
 function kiraJumlah() {
   const kos = Number(document.getElementById("kosHantar").value || 0);
+  document.getElementById("jumlahProduk").textContent = rm(jumlahProduk());
+  document.getElementById("paparKos").textContent = rm(kos);
   document.getElementById("jumlahHarga").textContent = rm(jumlahProduk() + kos);
 }
 
@@ -511,11 +773,34 @@ function tukarHantar() {
   const v = pilihan("hantar");
   n.textContent = NOTIS[v] || "";
   n.classList.toggle("tersembunyi", !v);
+  const kosInput = document.getElementById("kosHantar");
+  if (v in KOS_HANTAR) {
+    kosInput.value = KOS_HANTAR[v];
+    kosInput.readOnly = true;
+  } else {
+    kosInput.value = "";
+    kosInput.readOnly = false;
+  }
+  kiraJumlah();
 }
 function tukarBayar() {
   const v = pilihan("bayar");
   document.getElementById("kotakQR").classList.toggle("tersembunyi", v !== "QR Code");
   document.getElementById("kotakBank").classList.toggle("tersembunyi", v !== "Online Transfer");
+}
+function paparBank() {
+  const k = document.getElementById("kotakBank");
+  if (BANK.akaun) {
+    k.innerHTML = '<p><b>Bank:</b> ' + esc(BANK.nama) + '</p><p><b>No. Akaun:</b> ' + esc(BANK.akaun) + '</p><p><b>Nama Akaun:</b> ' + esc(BANK.pemilik) + '</p>';
+  } else {
+    k.innerHTML = '<p>Sila hubungi kami melalui WhatsApp untuk butiran akaun.</p>';
+  }
+}
+function paparFooterWa() {
+  if (NOMBOR_WHATSAPP.indexOf("X") !== -1) return;
+  const p = document.getElementById("footWa");
+  p.innerHTML = 'WhatsApp: <a href="https://wa.me/' + esc(NOMBOR_WHATSAPP) + '" style="color:#f4b400">+' + esc(NOMBOR_WHATSAPP) + '</a>';
+  p.classList.remove("tersembunyi");
 }
 
 // ---------- Hantar pesanan ke WhatsApp ----------
@@ -528,7 +813,7 @@ function hantarPesanan() {
   const bayar = pilihan("bayar");
   const kos = Number(document.getElementById("kosHantar").value || 0);
 
-  if (!Object.keys(troli).length) { alert("Sila pilih produk dahulu."); return; }
+  if (!troli.length) { alert("Sila tambah produk ke troli dahulu."); return; }
   if (!nama || !tel) { alert("Sila isi nama dan nombor telefon."); return; }
   if (!hantar) { alert("Sila pilih cara penghantaran."); return; }
   if (!bayar) { alert("Sila pilih cara pembayaran."); return; }
@@ -536,13 +821,19 @@ function hantarPesanan() {
   const noOrder = "BB-" + String(Date.now()).slice(-6);
   let mesej = "*PESANAN BARU - Bambites*\n";
   mesej += "No. Order: " + noOrder + "\n\n";
-  Object.keys(troli).forEach(sid => {
-    const p = produk.find(x => x.id === Number(sid));
-    if (p) mesej += "- " + p.nama + " x " + troli[sid] + " = RM " + rm(p.harga * troli[sid]) + "\n";
+  troli.forEach(b => {
+    mesej += "- " + b.produk + ", " + b.flavor + ", " + b.pakej + " " + b.unit + " (RM " + rm(b.harga) + ")\n";
+    const t = ringkasTopping(b.topping);
+    if (t) mesej += "  Topping: " + t + "\n";
   });
   mesej += "\nJumlah produk: RM " + rm(jumlahProduk());
-  mesej += "\nKos hantar: RM " + rm(kos);
-  mesej += "\n*Jumlah keseluruhan: RM " + rm(jumlahProduk() + kos) + "*\n\n";
+  if (hantar === "Lalamove" && !kos) {
+    mesej += "\nKos hantar: akan dimaklumkan (Lalamove)";
+    mesej += "\n*Jumlah produk (belum termasuk Lalamove): RM " + rm(jumlahProduk()) + "*\n\n";
+  } else {
+    mesej += "\nKos hantar: RM " + rm(kos);
+    mesej += "\n*Jumlah keseluruhan: RM " + rm(jumlahProduk() + kos) + "*\n\n";
+  }
   mesej += "Nama: " + nama + "\nTelefon: " + tel + "\n";
   if (alamat) mesej += "Alamat: " + alamat + "\n";
   mesej += "Penghantaran: " + hantar + "\nPembayaran: " + bayar + "\n";
@@ -560,9 +851,107 @@ function semakOrder() {
   window.open("https://wa.me/" + NOMBOR_WHATSAPP + "?text=" + encodeURIComponent(mesej), "_blank");
 }
 
+// ---------- Admin: urus order ----------
+const STATUS = ["Menunggu Pembayaran", "Sudah Bayar", "Sedang Diproses", "Disahkan", "Selesai & Dihantar"];
+const MESEJ_STATUS = {
+  "Menunggu Pembayaran": "Kami masih menunggu pembayaran dan bukti bayaran anda.",
+  "Sudah Bayar": "Pembayaran anda telah kami terima. Terima kasih!",
+  "Sedang Diproses": "Pesanan anda sedang diproses.",
+  "Disahkan": "Pesanan anda telah disahkan dan sedang disediakan untuk dihantar.",
+  "Selesai & Dihantar": "Pesanan anda telah selesai dan dihantar. Terima kasih kerana memilih Bambites!"
+};
+
+function bacaOrder() {
+  try { return JSON.parse(localStorage.getItem("bambites_order") || "[]"); } catch (e) { return []; }
+}
+let orders = bacaOrder();
+function simpanOrder() { try { localStorage.setItem("bambites_order", JSON.stringify(orders)); } catch (e) {} }
+
+function tambahOrder() {
+  const teks = document.getElementById("mesejOrder").value;
+  const mNo = teks.match(/No\. Order:\s*(BB-\d+)/i);
+  if (!mNo) { alert("Nombor order tidak dijumpai. Pastikan awak tampal keseluruhan mesej PESANAN BARU."); return; }
+  const no = mNo[1].toUpperCase();
+  if (orders.some(o => o.no === no)) { alert("Order " + no + " sudah ada dalam senarai."); return; }
+  const mNama = teks.match(/Nama:\s*(.+)/);
+  const mTel = teks.match(/Telefon:\s*(.+)/);
+  const mJumlah = teks.match(/Jumlah keseluruhan:\s*RM\s*([\d.]+)/) || teks.match(/Jumlah produk[^:\n]*:\s*RM\s*([\d.]+)/);
+  const mItem = teks.match(/No\. Order:[^\n]*\n([\s\S]*?)Jumlah produk/);
+  orders.unshift({
+    no: no,
+    nama: mNama ? mNama[1].trim() : "",
+    tel: mTel ? mTel[1].trim() : "",
+    jumlah: mJumlah ? mJumlah[1] : "",
+    item: mItem ? mItem[1].trim() : "",
+    status: STATUS[0]
+  });
+  simpanOrder();
+  document.getElementById("mesejOrder").value = "";
+  paparOrder();
+}
+
+function paparOrder() {
+  const kotak = document.getElementById("senaraiOrder");
+  if (!orders.length) { kotak.innerHTML = '<p class="kosong">Belum ada order.</p>'; return; }
+  kotak.innerHTML = "";
+  orders.forEach(o => {
+    const idx = Math.max(0, STATUS.indexOf(o.status));
+    let pilihanStatus = "";
+    STATUS.forEach(s => { pilihanStatus += '<option value="' + esc(s) + '"' + (s === o.status ? " selected" : "") + ">" + esc(s) + "</option>"; });
+    const d = document.createElement("div");
+    d.className = "order-kad";
+    d.innerHTML =
+      '<div class="order-atas"><span class="order-no">' + esc(o.no) + '</span><span class="lencana s' + idx + '">' + esc(o.status) + '</span></div>' +
+      '<div class="order-info"><b>' + esc(o.nama) + '</b> &middot; ' + esc(o.tel) + (o.jumlah ? ' &middot; RM ' + esc(o.jumlah) : "") + '</div>' +
+      '<div class="order-item">' + esc(o.item) + '</div>' +
+      '<div class="order-tindakan">' +
+      '<select class="status" onchange="ubahStatus(\'' + o.no + '\', this.value)">' + pilihanStatus + '</select>' +
+      '<button class="btn kecil" onclick="maklumPelanggan(\'' + o.no + '\')">Maklum Pelanggan</button>' +
+      '<button class="btn kecil kelabu" onclick="buangOrder(\'' + o.no + '\')">Buang</button>' +
+      '</div>';
+    kotak.appendChild(d);
+  });
+}
+
+function ubahStatus(no, status) {
+  const o = orders.find(x => x.no === no);
+  if (!o) return;
+  o.status = status;
+  simpanOrder();
+  paparOrder();
+}
+function buangOrder(no) {
+  if (!confirm("Buang order " + no + " daripada senarai?")) return;
+  orders = orders.filter(x => x.no !== no);
+  simpanOrder();
+  paparOrder();
+}
+function nomborPelanggan(tel) {
+  let n = String(tel || "").replace(/\D/g, "");
+  if (n.indexOf("60") === 0) return n;
+  if (n.indexOf("0") === 0) return "6" + n;
+  return "60" + n;
+}
+function maklumPelanggan(no) {
+  const o = orders.find(x => x.no === no);
+  if (!o) return;
+  if (!o.tel) { alert("Nombor telefon pelanggan tiada."); return; }
+  const mesej = "Hai " + (o.nama || "") + ", status order " + o.no + " anda: *" + o.status + "*.\n" + (MESEJ_STATUS[o.status] || "") + "\n\nTerima kasih, Bambites.";
+  window.open("https://wa.me/" + nomborPelanggan(o.tel) + "?text=" + encodeURIComponent(mesej), "_blank");
+}
+function aktifkanAdmin() {
+  document.getElementById("admin").classList.remove("tersembunyi");
+  paparOrder();
+  document.getElementById("admin").scrollIntoView();
+}
+window.addEventListener("hashchange", function () { if (location.hash === "#admin") aktifkanAdmin(); });
+
 // ---------- Mula ----------
-paparProduk();
+paparBina();
 paparTroli();
+paparBank();
+paparFooterWa();
+if (location.hash === "#admin") aktifkanAdmin();
 </script>
 </body>
 </html>
